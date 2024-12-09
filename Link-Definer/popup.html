@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 10px;
+      width: 400px;
+      box-sizing: border-box;
+    }
+    h2 {
+      margin: 0 0 5px 0;
+      font-size: 16px;
+    }
+    #infoBar {
+      font-size: 12px;
+      margin-bottom: 10px;
+      color: #555;
+    }
+    #controls {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 5px;
+      margin-bottom: 10px;
+    }
+    #controls input[type="text"] {
+      flex: 1;
+      padding: 5px;
+      font-size: 12px;
+      box-sizing: border-box;
+    }
+    #controls select, #controls button {
+      padding: 5px;
+      font-size: 12px;
+      cursor: pointer;
+    }
+    #viewToggle {
+      margin-left: auto;
+    }
+    #linksList {
+      max-height: 300px;
+      overflow-y: auto;
+      border: 1px solid #ccc;
+      padding: 5px;
+    }
+    .link-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 5px;
+      word-break: break-all;
+      font-size: 12px;
+      padding: 2px;
+    }
+    .link-info {
+      flex: 1;
+      margin-right: 5px;
+      cursor: pointer;
+      color: #0066cc;
+      text-decoration: none;
+    }
+    .internal .link-info {
+      color: #008000;
+    }
+    .copy-btn {
+      background: #eee;
+      border: 1px solid #aaa;
+      font-size: 11px;
+      cursor: pointer;
+      padding: 2px 5px;
+    }
+    .toolbar {
+      display: flex;
+      gap: 5px;
+      margin-bottom: 5px;
+      flex-wrap: wrap;
+    }
+    .toolbar button {
+      padding: 5px;
+      font-size: 12px;
+      cursor: pointer;
+    }
+    #instructions {
+      font-size: 12px;
+      margin-bottom: 10px;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+  <h2>Link Definer</h2>
+  <div id="instructions">
+    Extract and manage all links on this page. Use the controls below to filter, sort, view, and export links. Click a link or the copy button to copy its URL.
+  </div>
+
+  <div id="infoBar"></div>
+
+  <div id="controls">
+    <input type="text" id="searchInput" placeholder="Filter links..." />
+    <select id="sortSelect">
+      <option value="default">Sort: Default</option>
+      <option value="text">Sort by Text (A-Z)</option>
+      <option value="domain">Sort by Domain (Internal first)</option>
+    </select>
+    <button id="exportCSVBtn">CSV</button>
+    <button id="exportJSONBtn">JSON</button>
+    <label>
+      <input type="checkbox" id="viewToggle" />
+      Show URLs Only
+    </label>
+    <button id="refreshBtn">Refresh</button>
+  </div>
+
+  <div id="linksList">Loading...</div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
